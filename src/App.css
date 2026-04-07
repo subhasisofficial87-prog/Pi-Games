@@ -1,0 +1,60 @@
+/* Button press-down animation on click */
+.neon-button {
+  transition: transform 0.1s ease-out;
+}
+
+.neon-button:active {
+  animation: buttonPress 0.2s ease-out;
+}
+
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+/* Hover lift effect */
+.neon-button {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.neon-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Page transition animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply animations to landing page */
+.landing-container {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* Neon glow intensification on hover for headings */
+.neon-heading:hover {
+  filter: drop-shadow(0 0 20px var(--neon-magenta));
+}

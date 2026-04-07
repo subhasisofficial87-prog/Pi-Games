@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Neon Colors */
+:root {
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff0080;
+  --neon-magenta: #ff00ff;
+  --neon-green: #00ff00;
+  --neon-purple: #b026ff;
+  --dark-bg: #0a0e27;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background-color: var(--dark-bg);
+  color: white;
+}
+
+/* Neon Text Glow - Primary Heading */
+.neon-heading {
+  color: var(--neon-cyan);
+  text-shadow:
+    0 0 5px #ffffff,
+    0 0 10px #ffffff,
+    0 0 15px var(--neon-cyan),
+    0 0 25px var(--neon-cyan),
+    0 0 35px var(--neon-cyan),
+    0 0 50px var(--neon-cyan),
+    0 0 75px var(--neon-magenta);
+  animation: neon-pulse 2s ease-in-out infinite;
+  letter-spacing: 2px;
+}
+
+/* Pulsing Neon Animation */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #ffffff,
+      0 0 10px #ffffff,
+      0 0 15px var(--neon-cyan),
+      0 0 25px var(--neon-cyan),
+      0 0 35px var(--neon-cyan),
+      0 0 50px var(--neon-cyan),
+      0 0 75px var(--neon-magenta);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 5px #ffffff,
+      0 0 10px #ffffff,
+      0 0 15px var(--neon-cyan),
+      0 0 25px var(--neon-cyan),
+      0 0 35px var(--neon-cyan),
+      0 0 50px var(--neon-cyan),
+      0 0 75px var(--neon-magenta),
+      0 0 100px var(--neon-magenta);
+    transform: scale(1.02);
+  }
+}
+
+/* Cyan Neon Button */
+.neon-button-cyan {
+  background-color: var(--neon-cyan);
+  color: #000000;
+  border: 2px solid var(--neon-cyan);
+  box-shadow:
+    0 0 5px var(--neon-cyan),
+    0 0 10px var(--neon-cyan),
+    0 0 15px var(--neon-cyan),
+    inset 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.neon-button-cyan:hover {
+  box-shadow:
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-cyan),
+    0 0 30px var(--neon-cyan),
+    0 0 40px var(--neon-cyan),
+    inset 0 0 15px rgba(0, 255, 255, 0.5);
+  filter: drop-shadow(0 0 15px var(--neon-cyan));
+}
+
+.neon-button-cyan:active {
+  transform: scale(0.95);
+}
+
+/* Pink/Magenta Neon Button */
+.neon-button-pink {
+  background-color: var(--neon-pink);
+  color: #ffffff;
+  border: 2px solid var(--neon-pink);
+  box-shadow:
+    0 0 5px var(--neon-pink),
+    0 0 10px var(--neon-pink),
+    0 0 15px var(--neon-pink),
+    inset 0 0 10px rgba(255, 0, 128, 0.3);
+  transition: all 0.3s ease;
+}
+
+.neon-button-pink:hover {
+  box-shadow:
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 30px var(--neon-pink),
+    0 0 40px var(--neon-pink),
+    inset 0 0 15px rgba(255, 0, 128, 0.5);
+  filter: drop-shadow(0 0 15px var(--neon-pink));
+}
+
+.neon-button-pink:active {
+  transform: scale(0.95);
+}
+
+/* Secondary Button Style */
+.neon-button-secondary {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.neon-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Generic Neon Button */
+.neon-button {
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Flicker effect (subtle) - optional for certain elements */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 0.95;
+  }
+  22% {
+    opacity: 1;
+  }
+  39% {
+    opacity: 0.98;
+  }
+  42% {
+    opacity: 1;
+  }
+  44% {
+    opacity: 0.99;
+  }
+  58% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0.97;
+  }
+  66% {
+    opacity: 1;
+  }
+  69% {
+    opacity: 0.98;
+  }
+  73% {
+    opacity: 0.99;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Floating animation for numbers */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Smooth transitions */
+button {
+  cursor: pointer;
+}
+
+/* Accessibility - Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .neon-heading {
+    animation: none;
+  }
+}
