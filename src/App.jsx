@@ -2,15 +2,26 @@ import { useState } from 'react'
 import './App.css'
 import GameSettings from './components/GameSettings'
 import GameBoard from './components/GameBoard'
+import TwoPlayerSetup from './components/TwoPlayerSetup'
+import TwoPlayerGame from './components/TwoPlayerGame'
+import CrackTheCode from './components/CrackTheCode'
+import HighScores from './components/HighScores'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('landing')
   const [selectedMode, setSelectedMode] = useState(null)
   const [selectedDifficulty, setSelectedDifficulty] = useState(null)
+  const [twoPlayerNumber, setTwoPlayerNumber] = useState(null)
 
   const handleModeSelect = (mode) => {
     setSelectedMode(mode)
-    setCurrentPage('settings')
+    if (mode === 'solo') {
+      setCurrentPage('settings')
+    } else if (mode === '2player') {
+      setCurrentPage('2player-setup')
+    } else if (mode === 'crack') {
+      setCurrentPage('crack')
+    }
   }
 
   const handleGameStart = (difficulty) => {
@@ -18,10 +29,16 @@ export default function App() {
     setCurrentPage('game')
   }
 
+  const handle2PlayerStart = (number) => {
+    setTwoPlayerNumber(number)
+    setCurrentPage('2player-game')
+  }
+
   const handleBackToMenu = () => {
     setCurrentPage('landing')
     setSelectedMode(null)
     setSelectedDifficulty(null)
+    setTwoPlayerNumber(null)
   }
 
   return (
@@ -79,22 +96,24 @@ export default function App() {
               <button className="neon-button-secondary px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-opacity-80 flex items-center gap-2">
                 <span>ℹ️</span> How to Play
               </button>
-              <button className="neon-button-secondary px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-opacity-80 flex items-center gap-2">
+              <button
+                onClick={() => setCurrentPage('highscores')}
+                className="neon-button-secondary px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-opacity-80 flex items-center gap-2"
+              >
                 <span>🏆</span> High Scores
-                <span className="text-xs text-gray-500">(Login to save)</span>
               </button>
             </div>
           </div>
 
-          {/* Lovable Badge - Bottom Right */}
+          {/* Built with Badge - Bottom Right */}
           <div className="fixed bottom-4 right-4 text-xs text-gray-600">
             Built with Vite + React + Tailwind
           </div>
         </div>
       )}
 
-      {/* Game Settings Modal */}
-      {currentPage === 'settings' && selectedMode && (
+      {/* Game Settings Modal - Solo Game */}
+      {currentPage === 'settings' && selectedMode === 'solo' && (
         <GameSettings
           mode={selectedMode}
           onStart={handleGameStart}
@@ -102,12 +121,43 @@ export default function App() {
         />
       )}
 
-      {/* Game Board */}
-      {currentPage === 'game' && selectedMode && selectedDifficulty && (
+      {/* Solo Game Board */}
+      {currentPage === 'game' && selectedMode === 'solo' && selectedDifficulty && (
         <GameBoard
           difficulty={selectedDifficulty}
           mode={selectedMode}
           onBack={handleBackToMenu}
+        />
+      )}
+
+      {/* 2 Player Setup */}
+      {currentPage === '2player-setup' && (
+        <TwoPlayerSetup
+          onStart={handle2PlayerStart}
+          onBack={() => setCurrentPage('landing')}
+        />
+      )}
+
+      {/* 2 Player Game */}
+      {currentPage === '2player-game' && twoPlayerNumber !== null && (
+        <TwoPlayerGame
+          secretNumber={twoPlayerNumber}
+          onBack={handleBackToMenu}
+        />
+      )}
+
+      {/* Crack the Code Game */}
+      {currentPage === 'crack' && (
+        <CrackTheCode
+          difficulty="hard"
+          onBack={() => setCurrentPage('landing')}
+        />
+      )}
+
+      {/* High Scores Modal */}
+      {currentPage === 'highscores' && (
+        <HighScores
+          onBack={() => setCurrentPage('landing')}
         />
       )}
     </div>
