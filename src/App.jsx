@@ -1,8 +1,28 @@
 import { useState } from 'react'
 import './App.css'
+import GameSettings from './components/GameSettings'
+import GameBoard from './components/GameBoard'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('landing')
+  const [selectedMode, setSelectedMode] = useState(null)
+  const [selectedDifficulty, setSelectedDifficulty] = useState(null)
+
+  const handleModeSelect = (mode) => {
+    setSelectedMode(mode)
+    setCurrentPage('settings')
+  }
+
+  const handleGameStart = (difficulty) => {
+    setSelectedDifficulty(difficulty)
+    setCurrentPage('game')
+  }
+
+  const handleBackToMenu = () => {
+    setCurrentPage('landing')
+    setSelectedMode(null)
+    setSelectedDifficulty(null)
+  }
 
   return (
     <div className="min-h-screen bg-dark-bg text-white overflow-hidden">
@@ -28,7 +48,7 @@ export default function App() {
             <div className="space-y-4 flex flex-col items-center">
               {/* Solo Game Button */}
               <button
-                onClick={() => setCurrentPage('settings')}
+                onClick={() => handleModeSelect('solo')}
                 className="neon-button neon-button-cyan w-full md:w-80 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
               >
                 <span className="text-2xl">▶</span>
@@ -37,7 +57,7 @@ export default function App() {
 
               {/* 2 Player Mode Button */}
               <button
-                onClick={() => setCurrentPage('settings')}
+                onClick={() => handleModeSelect('2player')}
                 className="neon-button neon-button-pink w-full md:w-80 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
               >
                 <span className="text-2xl">👥</span>
@@ -46,7 +66,7 @@ export default function App() {
 
               {/* Crack the Code Button */}
               <button
-                onClick={() => setCurrentPage('settings')}
+                onClick={() => handleModeSelect('crack')}
                 className="neon-button neon-button-pink w-full md:w-80 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
               >
                 <span className="text-2xl">🔒</span>
@@ -55,7 +75,7 @@ export default function App() {
             </div>
 
             {/* Bottom Info Buttons */}
-            <div className="flex gap-4 justify-center mt-12">
+            <div className="flex gap-4 justify-center mt-12 flex-wrap">
               <button className="neon-button-secondary px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:bg-opacity-80 flex items-center gap-2">
                 <span>ℹ️</span> How to Play
               </button>
@@ -73,20 +93,22 @@ export default function App() {
         </div>
       )}
 
-      {/* Settings Page Placeholder */}
-      {currentPage === 'settings' && (
-        <div className="relative min-h-screen flex flex-col items-center justify-center px-4">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold mb-8 neon-heading">Game Settings</h2>
-            <p className="text-gray-400 mb-8">Settings UI coming in Phase 2...</p>
-            <button
-              onClick={() => setCurrentPage('landing')}
-              className="neon-button neon-button-cyan px-8 py-3 rounded-lg font-bold"
-            >
-              Back to Landing
-            </button>
-          </div>
-        </div>
+      {/* Game Settings Modal */}
+      {currentPage === 'settings' && selectedMode && (
+        <GameSettings
+          mode={selectedMode}
+          onStart={handleGameStart}
+          onBack={() => setCurrentPage('landing')}
+        />
+      )}
+
+      {/* Game Board */}
+      {currentPage === 'game' && selectedMode && selectedDifficulty && (
+        <GameBoard
+          difficulty={selectedDifficulty}
+          mode={selectedMode}
+          onBack={handleBackToMenu}
+        />
       )}
     </div>
   )
