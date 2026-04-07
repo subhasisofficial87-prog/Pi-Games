@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="neon-glow-cyan">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="neon-glow-pink">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="gradient-cyan-pink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient-cyan-pink)" stroke-width="2" opacity="0.3"/>
+
+  <!-- Outer neon ring (Cyan) -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#00ffff" stroke-width="3" filter="url(#neon-glow-cyan)" opacity="0.8"/>
+
+  <!-- Target circles - representing the guessing game -->
+  <circle cx="100" cy="100" r="65" fill="none" stroke="#ff0080" stroke-width="2.5" filter="url(#neon-glow-pink)" opacity="0.7"/>
+  <circle cx="100" cy="100" r="45" fill="none" stroke="#00ffff" stroke-width="2" filter="url(#neon-glow-cyan)" opacity="0.8"/>
+  <circle cx="100" cy="100" r="25" fill="none" stroke="#ff00ff" stroke-width="2" filter="url(#neon-glow-pink)" opacity="0.9"/>
+
+  <!-- Center dot with glow -->
+  <circle cx="100" cy="100" r="8" fill="#00ffff" filter="url(#neon-glow-cyan)"/>
+  <circle cx="100" cy="100" r="6" fill="#ff0080" opacity="0.8"/>
+
+  <!-- Question mark inside center -->
+  <text x="100" y="108" font-size="28" font-weight="bold" text-anchor="middle" fill="#00ffff" font-family="Arial, sans-serif" filter="url(#neon-glow-cyan)">?</text>
+
+  <!-- Decorative neon lines (left side - Cyan) -->
+  <line x1="50" y1="100" x2="70" y2="100" stroke="#00ffff" stroke-width="2" filter="url(#neon-glow-cyan)" opacity="0.6"/>
+  <line x1="55" y1="75" x2="70" y2="85" stroke="#00ffff" stroke-width="2" filter="url(#neon-glow-cyan)" opacity="0.6"/>
+  <line x1="55" y1="125" x2="70" y2="115" stroke="#00ffff" stroke-width="2" filter="url(#neon-glow-cyan)" opacity="0.6"/>
+
+  <!-- Decorative neon lines (right side - Pink) -->
+  <line x1="150" y1="100" x2="130" y2="100" stroke="#ff0080" stroke-width="2" filter="url(#neon-glow-pink)" opacity="0.6"/>
+  <line x1="145" y1="75" x2="130" y2="85" stroke="#ff0080" stroke-width="2" filter="url(#neon-glow-pink)" opacity="0.6"/>
+  <line x1="145" y1="125" x2="130" y2="115" stroke="#ff0080" stroke-width="2" filter="url(#neon-glow-pink)" opacity="0.6"/>
+
+  <!-- Top accent -->
+  <line x1="100" y1="15" x2="100" y2="35" stroke="#00ffff" stroke-width="2" filter="url(#neon-glow-cyan)" opacity="0.7"/>
+
+  <!-- Bottom accent -->
+  <line x1="100" y1="165" x2="100" y2="185" stroke="#ff0080" stroke-width="2" filter="url(#neon-glow-pink)" opacity="0.7"/>
+</svg>

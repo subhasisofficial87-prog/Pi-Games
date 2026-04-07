@@ -6,8 +6,11 @@ export default function LandingPage({ onLetsPlay }) {
 
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-sm border-b border-neon-cyan/20">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold neon-heading">🎮 Neon Numbers</div>
+        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <img src="/neon-numbers-logo.svg" alt="Neon Numbers" className="w-10 h-10" />
+            <div className="text-2xl font-bold neon-heading">Neon Numbers</div>
+          </div>
           <button
             onClick={onLetsPlay}
             className="neon-button neon-button-cyan px-6 py-2 rounded-lg font-bold text-sm"

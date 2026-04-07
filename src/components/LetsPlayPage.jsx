@@ -6,15 +6,18 @@ export default function LetsPlayPage({ onBack, onModeSelect }) {
 
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-sm border-b border-neon-cyan/20">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
           <button
             onClick={onBack}
-            className="text-2xl font-bold neon-heading hover:opacity-80 transition-opacity"
+            className="text-lg font-bold neon-heading hover:opacity-80 transition-opacity"
           >
             ← Back
           </button>
-          <div className="text-2xl font-bold neon-heading">🎮 Neon Numbers</div>
-          <div className="w-16"></div> {/* Spacer for alignment */}
+          <div className="flex items-center gap-3">
+            <img src="/neon-numbers-logo.svg" alt="Neon Numbers" className="w-10 h-10" />
+            <div className="text-2xl font-bold neon-heading">Neon Numbers</div>
+          </div>
+          <div className="w-20"></div> {/* Spacer for alignment */}
         </div>
       </nav>
 
