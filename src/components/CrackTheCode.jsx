@@ -115,7 +115,9 @@ export default function CrackTheCode({ difficulty, onBack }) {
             {/* Challenge Message */}
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-neon-pink mb-4">🔒 Crack the Code</h3>
-              <p className="text-gray-400 mb-4">I'm thinking of a number between 1 and 50</p>
+              <p className="text-gray-400 mb-4">
+                I'm thinking of a number between <span className="floating-number text-neon-pink">1</span> and <span className="floating-number text-neon-pink">50</span>
+              </p>
               <p className="text-sm text-red-400">⚠️ No hints! Guess carefully!</p>
             </div>
 

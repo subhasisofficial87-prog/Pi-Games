@@ -42,9 +42,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-dark-bg text-white overflow-hidden">
-      {/* Subtle scan-line effect background */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%224%22><line x1=%220%22 y1=%221%22 x2=%22100%22 y2=%221%22 stroke=%22white%22 stroke-width=%221%22/></svg>')] bg-repeat"></div>
+    <div className="min-h-screen bg-dark-bg text-white overflow-hidden relative">
+      {/* Scan-line overlay - Cyberpunk effect */}
+      <div className="scanline-overlay"></div>
 
       {/* Landing Page */}
       {currentPage === 'landing' && (

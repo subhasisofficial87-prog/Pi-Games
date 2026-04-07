@@ -85,7 +85,8 @@ export default function GameBoard({ difficulty, mode, onBack }) {
   };
 
   const timerColor = timer > 20 ? 'text-neon-cyan' : timer > 10 ? 'text-yellow-400' : 'text-red-500';
-  const timerShake = timer < 10 ? 'animate-pulse' : '';
+  const timerShake = timer < 10 ? 'timer-critical' : '';
+  const timerClass = timer < 10 ? 'timer-critical' : '';
 
   return (
     <div className="relative min-h-screen bg-dark-bg text-white flex flex-col">
@@ -101,7 +102,7 @@ export default function GameBoard({ difficulty, mode, onBack }) {
           🏠
         </button>
 
-        <div className={`text-lg font-bold ${timerColor} ${timerShake}`}>
+        <div className={`text-lg font-bold ${timerColor} ${timerClass}`}>
           ⏱️ {timer}s
         </div>
 
@@ -126,9 +127,9 @@ export default function GameBoard({ difficulty, mode, onBack }) {
             <div className="text-center mb-8">
               <p className="text-gray-400 mb-2">I'm thinking of a number between</p>
               <div className="text-4xl font-bold">
-                <span className="text-neon-pink">{minRange}</span>
+                <span className="text-neon-pink floating-number">{minRange}</span>
                 <span className="text-gray-400 mx-4">and</span>
-                <span className="text-neon-pink">{maxRange}</span>
+                <span className="text-neon-pink floating-number">{maxRange}</span>
               </div>
             </div>
 
