@@ -181,11 +181,11 @@ export default function SoloMode({ onBack }: { onBack: () => void }) {
 
         {/* Current Guess Display */}
         <div className="bg-gradient-to-b from-red-950/40 to-pink-950/40 rounded-2xl p-8 mb-6 border-2 border-pink-500/30">
-          <div className="flex justify-center gap-3 mb-6">
+          <div className="flex justify-center gap-4 mb-6">
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="w-16 h-16 bg-black/50 rounded-lg flex items-center justify-center text-3xl font-bold border-2 border-red-500/50 transition-all"
+                className="w-32 h-32 bg-black/50 rounded-xl flex items-center justify-center text-6xl font-bold border-2 transition-all duration-200"
                 style={{
                   color: currentGuess[i]
                     ? secretCode[i] === currentGuess[i]
@@ -198,6 +198,12 @@ export default function SoloMode({ onBack }: { onBack: () => void }) {
                         ? '#22c55e'
                         : '#ff6b6b'
                       : '#ff000080',
+                  transform: currentGuess[i] ? 'scale(1.05)' : 'scale(1)',
+                  boxShadow: currentGuess[i]
+                    ? secretCode[i] === currentGuess[i]
+                      ? '0 0 20px rgba(34, 197, 94, 0.5)'
+                      : '0 0 20px rgba(255, 107, 107, 0.5)'
+                    : 'none',
                 }}
               >
                 {currentGuess[i] || '-'}
