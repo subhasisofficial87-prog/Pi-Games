@@ -6,7 +6,7 @@ import GameSettings from './components/GameSettings'
 import GameBoard from './components/GameBoard'
 import TwoPlayerSetup from './components/TwoPlayerSetup'
 import TwoPlayerGame from './components/TwoPlayerGame'
-import CrackTheCode from './components/CrackTheCode'
+import CrackTheCodeGame from './components/CrackTheCodeGame'
 import HighScores from './components/HighScores'
 
 export default function App() {
@@ -101,9 +101,8 @@ export default function App() {
 
       {/* Crack the Code Game */}
       {currentPage === 'crack' && (
-        <CrackTheCode
-          difficulty="hard"
-          onBack={() => setCurrentPage('landing')}
+        <CrackTheCodeGame
+          onBack={() => setCurrentPage('lets-play')}
         />
       )}
 
