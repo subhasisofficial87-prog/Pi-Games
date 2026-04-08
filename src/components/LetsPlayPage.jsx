@@ -5,13 +5,19 @@ export default function LetsPlayPage({ onBack, onModeSelect }) {
       <div className="scanline-overlay"></div>
 
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-sm border-b border-neon-cyan/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-dark-bg via-dark-bg to-dark-bg/95 border-b border-neon-cyan/30">
         <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
           <button
             onClick={onBack}
-            className="text-lg font-bold neon-heading hover:opacity-80 transition-opacity"
+            className="group flex items-center gap-2 px-4 py-2 rounded-lg
+              bg-gradient-to-r from-neon-cyan/10 to-neon-cyan/5
+              border border-neon-cyan/40 hover:border-neon-cyan/80
+              text-neon-cyan hover:text-white
+              transition-all duration-300 transform hover:scale-105 active:scale-95
+              font-semibold text-sm"
           >
-            ← Back
+            <span className="group-hover:-translate-x-1 transition-transform">←</span>
+            Back
           </button>
           <div className="flex items-center gap-3">
             <img src="/neon-numbers-logo.svg" alt="Neon Numbers" className="w-10 h-10" />

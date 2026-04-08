@@ -5,7 +5,7 @@ export default function LandingPage({ onLetsPlay }) {
       <div className="scanline-overlay"></div>
 
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark-bg/80 backdrop-blur-sm border-b border-neon-cyan/20">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-dark-bg via-dark-bg to-dark-bg/95 border-b border-neon-cyan/30">
         <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src="/neon-numbers-logo.svg" alt="Neon Numbers" className="w-10 h-10" />

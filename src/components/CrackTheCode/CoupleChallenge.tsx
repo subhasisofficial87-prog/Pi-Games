@@ -162,9 +162,15 @@ export default function CoupleChallenge({ onBack }: { onBack: () => void }) {
         </button>
         <button
           onClick={onBack}
-          className="px-4 py-2 rounded-lg bg-gray-700/50 hover:bg-gray-700 transition-all text-gray-300"
+          className="group flex items-center gap-2 px-4 py-2 rounded-lg
+            bg-gradient-to-r from-neon-cyan/10 to-neon-cyan/5
+            border border-neon-cyan/40 hover:border-neon-cyan/80
+            text-neon-cyan hover:text-white
+            transition-all duration-300 transform hover:scale-105 active:scale-95
+            font-semibold text-sm shadow-lg hover:shadow-neon-cyan/50"
         >
-          ← Back
+          <span className="group-hover:-translate-x-1 transition-transform">←</span>
+          Back
         </button>
       </div>
 

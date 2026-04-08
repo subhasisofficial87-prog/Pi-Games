@@ -62,9 +62,15 @@ export default function ModeSelection({ onSelectMode, onBack }: ModeSelectionPro
       {/* Back Button */}
       <button
         onClick={onBack}
-        className="px-8 py-3 rounded-lg font-bold text-gray-300 hover:text-white border border-gray-600 hover:border-gray-400 transition-all duration-300"
+        className="group flex items-center gap-2 px-6 py-3 rounded-lg font-bold
+          bg-gradient-to-r from-neon-cyan/10 to-neon-cyan/5
+          border border-neon-cyan/40 hover:border-neon-cyan/80
+          text-neon-cyan hover:text-white
+          transition-all duration-300 transform hover:scale-105 active:scale-95
+          shadow-lg hover:shadow-neon-cyan/50"
       >
-        ← Back to Menu
+        <span className="group-hover:-translate-x-1 transition-transform">←</span>
+        Back to Menu
       </button>
     </div>
   );

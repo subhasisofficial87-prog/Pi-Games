@@ -96,10 +96,16 @@ export default function GameBoard({ difficulty, mode, onBack }) {
       <div className="flex justify-between items-center px-6 py-4 border-b border-neon-cyan/20">
         <button
           onClick={onBack}
-          className="p-2 hover:bg-neon-cyan/10 rounded-lg transition-all"
+          className="group flex items-center gap-2 px-4 py-2 rounded-lg
+            bg-gradient-to-r from-neon-cyan/10 to-neon-cyan/5
+            border border-neon-cyan/40 hover:border-neon-cyan/80
+            text-neon-cyan hover:text-white
+            transition-all duration-300 transform hover:scale-105 active:scale-95
+            font-semibold text-sm"
           title="Back to menu"
         >
-          🏠
+          <span className="text-lg">🏠</span>
+          Home
         </button>
 
         <div className={`text-lg font-bold ${timerColor} ${timerClass}`}>
