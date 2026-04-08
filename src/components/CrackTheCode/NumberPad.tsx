@@ -51,7 +51,7 @@ export default function NumberPad({
   };
 
   const isCompact = variant === 'compact';
-  const keySize = isCompact ? 'py-3 px-2 text-lg' : 'py-4 px-3 text-2xl';
+  const keySize = isCompact ? 'py-2 px-1 text-sm' : 'py-2 px-1.5 text-base';
 
   const KeyButton = ({
     digit,
@@ -132,6 +132,8 @@ export default function NumberPad({
 
         .animated-keypad {
           animation: slideUp 0.6s ease-out;
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
         }
 
         .keypad-container {
@@ -257,12 +259,13 @@ export default function NumberPad({
       {/* Main Keypad Container */}
       <div className="keypad-container">
         {/* Number Grid with staggered animation */}
-        <div className="animated-keypad grid grid-cols-3 gap-2 sm:gap-3 mb-3">
+        <div className="animated-keypad grid grid-cols-3 gap-1 sm:gap-1.5 mb-3" style={{ minWidth: 0 }}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num, index) => (
             <div
               key={num}
               style={{
                 animation: `slideUp 0.5s ease-out ${index * 0.04}s both`,
+                minWidth: 0,
               }}
             >
               <KeyButton
@@ -276,9 +279,9 @@ export default function NumberPad({
         </div>
 
         {/* Bottom Row - 0, Delete, Submit */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="grid grid-cols-3 gap-1 sm:gap-1.5" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', minWidth: 0 }}>
           {/* Zero Key */}
-          <div style={{ animation: 'slideUp 0.5s ease-out 0.36s both' }}>
+          <div style={{ animation: 'slideUp 0.5s ease-out 0.36s both', minWidth: 0 }}>
             <KeyButton
               digit="0"
               onClick={() => handleDigitClick('0')}
@@ -288,7 +291,7 @@ export default function NumberPad({
           </div>
 
           {/* Delete Button */}
-          <div style={{ animation: 'slideUp 0.5s ease-out 0.4s both' }}>
+          <div style={{ animation: 'slideUp 0.5s ease-out 0.4s both', minWidth: 0 }}>
             <button
               onMouseDown={() => handleKeyDown('delete')}
               onMouseUp={() => handleKeyUp('delete')}
@@ -313,7 +316,7 @@ export default function NumberPad({
           </div>
 
           {/* Submit Icon Button */}
-          <div style={{ animation: 'slideUp 0.5s ease-out 0.44s both' }}>
+          <div style={{ animation: 'slideUp 0.5s ease-out 0.44s both', minWidth: 0 }}>
             <button
               onMouseDown={() => onSubmit && handleKeyDown('submit')}
               onMouseUp={() => onSubmit && handleKeyUp('submit')}
