@@ -1,5 +1,5 @@
 import React from 'react';
-import { Backspace, Send } from 'lucide-react';
+import { Delete, Send } from 'lucide-react';
 
 interface NumberPadProps {
   onDigit: (digit: string) => void;
@@ -37,7 +37,7 @@ export default function NumberPad({ onDigit, onDelete, onSubmit, submitLabel = '
           onClick={onDelete}
           className="py-4 px-3 rounded-xl bg-gradient-to-b from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center"
         >
-          <Backspace className="w-6 h-6" />
+          <Delete className="w-6 h-6" />
         </button>
 
         <button
