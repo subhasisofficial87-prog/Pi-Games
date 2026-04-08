@@ -173,9 +173,9 @@ export default function CoupleChallenge({ onBack }: { onBack: () => void }) {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <Heart className="w-12 h-12 text-red-400 mx-auto mb-4" fill="currentColor" />
-            <h2 className="text-3xl font-bold text-white mb-2">Player 1 - Set the Code</h2>
+            <h2 className="text-3xl font-bold text-white mb-2">Brain Mate 🧠 - Player 1: Set the Code</h2>
             <p className="text-gray-300">Enter your secret 4-digit code (0-9)</p>
-            <p className="text-sm text-gray-500 mt-2">Keep it hidden from Player 2! 🤫</p>
+            <p className="text-sm text-gray-500 mt-2">Keep it hidden from your partner! 🤫</p>
           </div>
 
           {/* Code Display */}
@@ -209,7 +209,7 @@ export default function CoupleChallenge({ onBack }: { onBack: () => void }) {
           {/* Header */}
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-white mb-2">
-              🔓 Player 2 - Crack the Code!
+              🔓 Brain Mate 🧠 - Player 2: Crack the Code!
             </h2>
             <p className="text-gray-300">
               Attempts: <span className="text-red-400 text-2xl font-bold">{attempts}</span>

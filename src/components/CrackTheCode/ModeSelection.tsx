@@ -20,7 +20,7 @@ export default function ModeSelection({ onSelectMode, onBack }: ModeSelectionPro
 
       {/* Mode Selection Cards */}
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mb-8">
-        {/* Couple Challenge Card */}
+        {/* Brain Mate Card */}
         <div
           onClick={() => onSelectMode('couple')}
           className="group cursor-pointer p-8 rounded-2xl border-2 border-pink-500/30 bg-gradient-to-br from-pink-950/40 to-red-950/40 hover:border-pink-500/80 hover:bg-pink-950/60 transition-all duration-300 transform hover:scale-105"
@@ -28,14 +28,14 @@ export default function ModeSelection({ onSelectMode, onBack }: ModeSelectionPro
           <div className="flex justify-center mb-4">
             <Heart className="w-16 h-16 text-red-400 group-hover:animate-bounce" fill="currentColor" />
           </div>
-          <h2 className="text-3xl font-bold text-center text-white mb-3">Couple Challenge</h2>
+          <h2 className="text-3xl font-bold text-center text-white mb-3">Brain Mate 🧠</h2>
           <p className="text-gray-300 text-center mb-4">
-            Play with a partner! One person sets the code, the other guesses. Funny reactions included! 🔥
+            Play with a friend! One person sets the code, the other guesses. Funny reactions included! 🔥
           </p>
           <ul className="text-sm text-gray-400 space-y-2 text-center">
             <li>✓ Hotseat mode</li>
-            <li>✓ Couple-style reactions</li>
-            <li>✓ Perfect for TikTok vibes</li>
+            <li>✓ Fun reactions</li>
+            <li>✓ Perfect for friends & partners</li>
           </ul>
         </div>
 
